@@ -582,13 +582,13 @@ def test_session_vary_cookie(app, client):
 
 
 def test_session_refresh_vary(app, client):
-    @app.get("/login")
+    @app.route("/login")
     def login():
         flask.session["user_id"] = 1
         flask.session.permanent = True
         return ""
 
-    @app.get("/ignored")
+    @app.route("/ignored")
     def ignored():
         return ""
 
